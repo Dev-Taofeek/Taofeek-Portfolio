@@ -1,13 +1,16 @@
-import "./globals.css";
+import "../app/globals.css";
 
 export const metadata = {
     metadataBase: new URL("https://your-portfolio-link.vercel.app"),
+
     title: {
         default: "Obayomi Taofeek | Frontend Developer",
         template: "%s | Obayomi Taofeek",
     },
+
     description:
-        "Frontend Developer building clean, responsive, and high-performance web experiences with React, Next.js, TypeScript, and Tailwind CSS.",
+        "Frontend Developer specializing in React, Next.js, TypeScript, Tailwind CSS, and modern responsive web applications. Building fast, interactive, and user-focused digital experiences.",
+
     keywords: [
         "Obayomi Taofeek",
         "Frontend Developer",
@@ -15,19 +18,30 @@ export const metadata = {
         "Next.js Developer",
         "JavaScript Developer",
         "TypeScript Developer",
-        "Tailwind CSS Developer",
-        "Frontend Engineer Nigeria",
-        "Web Developer Portfolio",
+        "Tailwind CSS",
+        "Web Developer Nigeria",
+        "Frontend Engineer",
+        "Responsive Web Design",
     ],
-    authors: [{ name: "Obayomi Taofeek" }],
+
+    authors: [
+        {
+            name: "Obayomi Taofeek",
+            url: "https://your-portfolio-link.vercel.app",
+        },
+    ],
+
     creator: "Obayomi Taofeek",
+
     openGraph: {
         title: "Obayomi Taofeek | Frontend Developer",
         description:
-            "Frontend Developer building modern, responsive, and business-focused web experiences.",
+            "Frontend Developer building modern, responsive, and high-performance web experiences.",
         url: "https://your-portfolio-link.vercel.app",
-        siteName: "Obayomi Taofeek Portfolio",
+        siteName: "Obayomi Portfolio",
+        locale: "en_US",
         type: "website",
+
         images: [
             {
                 url: "/og-image.png",
@@ -37,17 +51,23 @@ export const metadata = {
             },
         ],
     },
+
     twitter: {
         card: "summary_large_image",
         title: "Obayomi Taofeek | Frontend Developer",
         description:
-            "Frontend Developer building clean, responsive, and high-performance web experiences.",
+            "Frontend Developer building modern and responsive web applications.",
+        creator: "@ObayomiTaofeek",
+
         images: ["/og-image.png"],
     },
+
     icons: {
         icon: "/favicon.ico",
+        shortcut: "/favicon.ico",
         apple: "/apple-touch-icon.png",
     },
+
     robots: {
         index: true,
         follow: true,
@@ -56,7 +76,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body>{children}</body>
         </html>
     );
