@@ -66,13 +66,13 @@ export default function Contact() {
                             <div className="mt-2 lg:mt-4 flex flex-wrap gap-3">
                                 <Social
                                     icon={GithubIcon}
-                                    link="https://github.com/Tobless-scripts"
+                                    link="https://github.com/Dev-Taofeek?tab=repositories"
                                     label="GitHub"
                                 />
 
                                 <Social
                                     icon={LinkedinIcon}
-                                    link="https://www.linkedin.com/in/obayomi-taofeek-805a56267/"
+                                    link="https://www.linkedin.com/in/taofeek-obayomi-a7b29a36b/"
                                     label="LinkedIn"
                                 />
 

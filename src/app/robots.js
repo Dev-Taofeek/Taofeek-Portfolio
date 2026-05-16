@@ -5,6 +5,6 @@ export default function robots() {
             allow: "/",
         },
 
-        sitemap: "https://your-portfolio-link.vercel.app/sitemap.xml",
+        sitemap: "https://taofeek-portfolio.vercel.app/sitemap.xml",
     };
 }

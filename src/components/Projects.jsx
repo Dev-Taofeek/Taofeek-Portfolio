@@ -10,7 +10,7 @@ export default function Projects() {
                     <SectionHeader
                         eyebrow="Projects"
                         title="Selected work built with purpose."
-                        text="Each project shows how I think through problems, structure interfaces, and build usable digital products."
+                        text="Short previews of real projects I’ve worked on. Click any project to view the full breakdown, live site, and GitHub link."
                     />
 
                     <a
@@ -21,10 +21,10 @@ export default function Projects() {
                     </a>
                 </div>
 
-                <div className="grid gap-5 lg:grid-cols-3">
+                <div className="grid items-stretch gap-5 md:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project, index) => (
                         <ProjectCard
-                            key={project.title}
+                            key={project.slug}
                             project={project}
                             index={index}
                         />

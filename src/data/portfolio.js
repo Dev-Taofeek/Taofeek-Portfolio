@@ -8,51 +8,72 @@ export const navLinks = [
 ];
 
 export const skills = [
-    "React.js",
-    "Next.js",
-    "JavaScript",
-    "TypeScript",
-    "Tailwind CSS",
-    "Firebase",
-    "Framer Motion",
-    "REST APIs",
-    "Git & GitHub",
+    { name: "HTML5", icon: "html" },
+    { name: "CSS3", icon: "css" },
+    { name: "JavaScript", icon: "javascript" },
+    { name: "TypeScript", icon: "typescript" },
+    { name: "React.js", icon: "react" },
+    { name: "Next.js", icon: "next" },
+    { name: "Tailwind CSS", icon: "tailwind" },
+    { name: "Redux", icon: "redux" },
+    { name: "Firebase", icon: "firebase" },
+    { name: "Supabase", icon: "supabase" },
+    { name: "Shadcn UI", icon: "shadcn" },
+    { name: "Framer Motion", icon: "framer" },
+    { name: "REST APIs", icon: "api" },
+    { name: "Git & GitHub", icon: "github" },
 ];
 
 export const projects = [
     {
+        slug: "camp-connect",
         title: "Camp Connect",
         type: "NYSC Social Platform",
+        shortDescription:
+            "A social platform for NYSC corps members to connect, share updates, and access useful resources.",
         description:
-            "A social platform created for NYSC corps members to connect, share updates, and access useful community resources.",
+            "Camp Connect is a modern social platform designed for NYSC corps members. It helps corps members connect, communicate, share updates, and access useful camp-related resources through a clean and responsive user experience.",
         problem:
-            "NYSC corps members need a simple way to connect, communicate, and access camp-related updates.",
+            "NYSC corps members need a simple and accessible way to connect with others, stay updated, and engage with camp-related information.",
         solution:
-            "Built a responsive social-style platform with clean navigation, modern UI, and mobile-first layouts.",
+            "I built a responsive social-style platform with clean navigation, modern UI sections, mobile-first layouts, and interactive frontend experiences.",
+        role: "Frontend Developer",
         stack: ["Next.js", "Tailwind CSS", "Firebase"],
-        link: "https://mvp-1-pi.vercel.app/",
+        live: "https://mvp-1-pi.vercel.app/",
+        github: "https://github.com/Dev-Taofeek?tab=repositories",
+        year: "2026",
     },
     {
+        slug: "gabriel-adewumni-portfolio",
         title: "Gabriel Adewumni Portfolio",
         type: "Client Portfolio Website",
+        shortDescription:
+            "A professional portfolio website for a London-based Product Manager.",
         description:
-            "A professional portfolio website for a London-based Product Manager to showcase experience, work, and personal brand.",
+            "A modern portfolio website built for Gabriel Adewumni, a London-based Product Manager. The website presents his experience, work, skills, and personal brand in a clean and professional way.",
         problem:
-            "The client needed a strong online presence that looked professional and communicated credibility.",
+            "The client needed a credible online presence that clearly communicated his professional value and product management experience.",
         solution:
-            "Designed and developed a clean portfolio with responsive sections, clear project storytelling, and polished interactions.",
+            "I designed and developed a clean, responsive portfolio with strong content structure, smooth sections, and a polished interface that works across all devices.",
+        role: "Frontend Developer",
         stack: ["React", "Tailwind CSS", "Framer Motion"],
-        link: "https://gabirel-portfolio.vercel.app/",
+        live: "https://gabirel-portfolio.vercel.app/",
+        github: "https://github.com/Dev-Taofeek/Gabirel-Portfolio",
+        year: "2026",
     },
     {
+        slug: "edutest-pro",
         title: "EduTest Pro",
-        type: "AI-Powered CBT Exam Platform",
+        type: "AI-Powered CBT Platform",
+        shortDescription:
+            "An exam preparation platform with smart testing, feedback, and performance tracking.",
         description:
-            "A modern AI-powered exam preparation platform that helps students practice smarter, track performance, and improve success rates through intelligent testing.",
+            "EduTest Pro is a modern AI-powered CBT exam preparation platform built to help students practice smarter, track progress, and improve performance through structured testing.",
         problem:
-            "Students need a smarter and more structured way to practice exams, monitor progress, and prepare effectively with real-time feedback.",
+            "Students need a better way to practice exams, track progress, receive feedback, and prepare with a realistic testing experience.",
         solution:
-            "Built a responsive CBT exam platform with real-time feedback, performance tracking, smart timer, anti-cheat features, secure testing flow, and a smooth animated user experience.",
+            "I built a responsive CBT platform with real-time feedback, performance tracking, smart timer, anti-cheat features, and a clean exam-focused interface.",
+        role: "Frontend Developer",
         stack: [
             "Next.js",
             "JavaScript",
@@ -60,10 +81,11 @@ export const projects = [
             "Framer Motion",
             "Supabase",
         ],
-        link: "https://online-cbt-exam.vercel.app/",
+        live: "https://online-cbt-exam.vercel.app/",
+        github: "https://github.com/Dev-Taofeek/Edu-Test-Pro",
+        year: "2026",
     },
 ];
-
 export const experiences = [
     {
         role: "Frontend Engineer",
@@ -75,14 +97,14 @@ export const experiences = [
     {
         role: "Frontend Developer",
         company: "Camp Connect",
-        date: "2025 — Present",
+        date: "Jul 2025 — Present",
         description:
             "Developed a social platform for NYSC corps members with a focus on responsiveness, usability, and product experience.",
     },
     {
         role: "Frontend Developer",
         company: "Gabriel Adewumni Portfolio",
-        date: "2025",
+        date: "2026",
         description:
             "Designed and developed a professional portfolio website for a London-based Product Manager.",
     },

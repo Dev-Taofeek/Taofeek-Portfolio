@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-    metadataBase: new URL("https://your-portfolio-link.vercel.app"),
+    metadataBase: new URL("https://taofeek-portfolio.vercel.app/"),
     title: {
         default: "Obayomi Taofeek | Frontend Developer",
         template: "%s | Obayomi Taofeek",
@@ -25,7 +25,7 @@ export const metadata = {
         title: "Obayomi Taofeek | Frontend Developer",
         description:
             "Frontend Developer building modern, responsive, and business-focused web experiences.",
-        url: "https://your-portfolio-link.vercel.app",
+        url: "https://taofeek-portfolio.vercel.app/",
         siteName: "Obayomi Taofeek Portfolio",
         type: "website",
         images: [

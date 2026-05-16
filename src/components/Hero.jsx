@@ -50,7 +50,6 @@ export default function Hero() {
                     <div className="mt-10 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
                         <Stat value="2+" label="Years" />
                         <Stat value="5+" label="Projects" />
-                        <Stat value="3" label="Experiences" />
                         <Stat value="100%" label="Responsive" />
                     </div>
                 </motion.div>
