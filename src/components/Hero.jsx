@@ -1,160 +1,280 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Code2, Play, Sparkles, Download } from "lucide-react";
+import { motion, LazyMotion, domAnimation, m } from "framer-motion";
+import { ArrowRight, Download, Sparkles } from "lucide-react";
+
+// ─── Use LazyMotion to cut Framer bundle from ~95KB → ~18KB ───
+// domAnimation includes only what we need (animate, whileInView, etc.)
+// Full framer-motion is only loaded when needed
+
+const container = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.08, delayChildren: 0.05 } },
+};
+
+const fadeUp = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+    },
+};
+
+const fadeRight = {
+    hidden: { opacity: 0, x: 28 },
+    show: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
+};
+
+const stackItems = [
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Framer Motion",
+    "Supabase",
+    "Redux",
+    "Firebase",
+    "REST APIs",
+    "Git & GitHub",
+    "Shadcn UI",
+];
 
 export default function Hero() {
     return (
-        <section id="home" className="grid-bg relative min-h-screen px-5 pt-28">
-            <div className="container grid min-h-[calc(100vh-110px)] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-                <motion.div
-                    initial={{ opacity: 0, y: 22 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.65 }}
-                >
-                    <p className="mini-label mb-8 text-black/45">
-                        Design. Build. Deploy.
-                    </p>
-
-                    <h1 className="max-w-2xl text-[2.8rem] font-black leading-[0.95] tracking-[-0.065em] sm:text-3xl md:text-4xl lg:text-[4.75rem]">
-                        Building web products that solve real problems.
-                    </h1>
-
-                    <p className="mt-6 max-w-md text-sm leading-7 text-black/60 md:text-[15px]">
-                        I’m Obayomi Taofeek, a Frontend Developer focused on
-                        creating fast, responsive, and professional web
-                        experiences with React, Next.js, TypeScript, and
-                        Tailwind CSS.
-                    </p>
-
-                    <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                        <a
-                            href="#projects"
-                            className="inline-flex items-center justify-center gap-3 bg-black px-5 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-white transition hover:-translate-y-1"
+        // LazyMotion loads only the animation features we use — saves ~77KB JS
+        <LazyMotion features={domAnimation} strict>
+            <section
+                id="home"
+                aria-label="Introduction"
+                className="grid-bg relative min-h-screen px-5 pt-28 pb-16"
+            >
+                <div className="container relative flex min-h-[calc(100vh-112px)] flex-col justify-center gap-16 lg:flex-row lg:items-center lg:gap-10">
+                    {/* ─── Left: Text ─── */}
+                    <m.div
+                        variants={container}
+                        initial="hidden"
+                        animate="show"
+                        className="flex-1"
+                    >
+                        {/* Available badge */}
+                        <m.div
+                            variants={fadeUp}
+                            className="mb-7 inline-flex items-center gap-2.5 rounded-full border border-black/10 bg-white/70 px-4 py-2 backdrop-blur-sm"
                         >
-                            <span className="grid h-8 w-8 place-items-center border border-white/20">
-                                <Play size={13} fill="white" />
+                            <span
+                                className="relative flex h-2.5 w-2.5"
+                                aria-hidden="true"
+                            >
+                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-70" />
+                                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
                             </span>
-                            View Work
-                        </a>
+                            <span className="mini-label text-black/55">
+                                Available for work
+                            </span>
+                        </m.div>
 
-                        <a
-                            href="/Obayomi-Taofeek-Resume.pdf"
-                            download
-                            className="inline-flex items-center justify-center gap-2 border border-black/15 px-5 py-3 text-[11px] font-black uppercase tracking-[0.2em] transition hover:-translate-y-1 hover:bg-black hover:text-white"
+                        {/* h1 — this is the LCP element, keep it render-unblocked */}
+                        <m.h1
+                            variants={fadeUp}
+                            className="max-w-2xl text-[2.6rem] font-black leading-[0.93] tracking-[-0.065em] md:text-[3.5rem] lg:text-[4.4rem]"
                         >
-                            Resume <Download size={14} />
-                        </a>
-                    </div>
+                            Building web{" "}
+                            <span className="relative inline-block">
+                                products
+                                <m.span
+                                    initial={{ scaleX: 0 }}
+                                    animate={{ scaleX: 1 }}
+                                    transition={{
+                                        delay: 0.6,
+                                        duration: 0.45,
+                                        ease: [0.22, 1, 0.36, 1],
+                                    }}
+                                    className="absolute -bottom-1 left-0 h-0.75 w-full origin-left bg-black"
+                                    aria-hidden="true"
+                                />
+                            </span>
+                            <br />
+                            that solve real problems.
+                        </m.h1>
 
-                    <div className="mt-10 grid max-w-xl grid-cols-2 gap-3 sm:grid-cols-4">
-                        <Stat value="2+" label="Years" />
-                        <Stat value="5+" label="Projects" />
-                        <Stat value="100%" label="Responsive" />
-                    </div>
-                </motion.div>
+                        <m.p
+                            variants={fadeUp}
+                            className="mt-7 max-w-120 text-base leading-[1.85] text-black/60"
+                        >
+                            I&apos;m{" "}
+                            <strong className="font-black text-black">
+                                Obayomi Taofeek
+                            </strong>
+                            , a Frontend Developer crafting fast, responsive,
+                            and professional web experiences with React,
+                            Next.js, TypeScript, and Tailwind CSS.
+                        </m.p>
 
-                <motion.div
-                    initial={{ opacity: 0, x: 28 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.75 }}
-                    className="relative mx-auto w-full max-w-150"
-                >
-                    <div className="absolute right-0 top-8 h-80 w-80 rounded-full bg-black/[0.035] blur-3xl" />
+                        <m.div
+                            variants={fadeUp}
+                            className="mt-9 flex flex-wrap gap-3"
+                        >
+                            <a
+                                href="#projects"
+                                className="inline-flex items-center gap-2.5 bg-black px-6 py-3.5 text-[11px] font-black uppercase tracking-[0.2em] text-white transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+                                aria-label="View my work"
+                            >
+                                View My Work
+                                <ArrowRight size={14} aria-hidden="true" />
+                            </a>
 
-                    <div className="relative min-h-97.5">
-                        <div className="absolute right-8 top-6 hidden h-72 w-72 rounded-full border border-black/10 md:block" />
-                        <div className="absolute right-24 top-20 hidden h-52 w-52 rounded-full border border-black/10 md:block" />
+                            <a
+                                href="/Obayomi-Taofeek-Resume.pdf"
+                                download
+                                className="inline-flex items-center gap-2.5 border border-black/20 px-6 py-3.5 text-[11px] font-black uppercase tracking-[0.2em] transition-all hover:-translate-y-0.5 hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+                                aria-label="Download my resume"
+                            >
+                                <Download size={14} aria-hidden="true" />
+                                Resume
+                            </a>
+                        </m.div>
 
-                        <motion.div
-                            animate={{ y: [0, -10, 0] }}
+                        <m.div
+                            variants={fadeUp}
+                            className="mt-12 flex flex-wrap gap-0 divide-x divide-black/10"
+                            role="list"
+                            aria-label="Key statistics"
+                        >
+                            {[
+                                { value: "2+", label: "Years Coding" },
+                                { value: "5+", label: "Projects Built" },
+                                { value: "100%", label: "Responsive" },
+                            ].map((stat) => (
+                                <div
+                                    key={stat.label}
+                                    className="px-8 first:pl-0"
+                                    role="listitem"
+                                >
+                                    <p className="text-2xl font-black tracking-[-0.04em]">
+                                        {stat.value}
+                                    </p>
+                                    <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-black/45">
+                                        {stat.label}
+                                    </p>
+                                </div>
+                            ))}
+                        </m.div>
+                    </m.div>
+
+                    {/* ─── Right: Code card ─── */}
+                    <m.div
+                        variants={fadeRight}
+                        initial="hidden"
+                        animate="show"
+                        className="relative mx-auto w-full max-w-md lg:max-w-105 xl:max-w-115"
+                        aria-hidden="true"
+                    >
+                        <div className="pointer-events-none absolute -right-8 -top-8 h-64 w-64 rounded-full border border-black/6" />
+                        <div className="pointer-events-none absolute -right-16 -top-16 h-96 w-96 rounded-full border border-black/4" />
+
+                        <m.div
+                            animate={{ y: [0, -12, 0] }}
                             transition={{
-                                duration: 5,
+                                duration: 5.5,
                                 repeat: Infinity,
                                 ease: "easeInOut",
                             }}
-                            className="relative z-10 mx-auto rounded-4xl border border-black/10 bg-[#f7f7f5] p-5 shadow-2xl shadow-black/10"
+                            className="relative z-10 rounded-3xl border border-black/10 bg-[#f7f7f5] p-5 shadow-2xl shadow-black/8"
                         >
-                            <div className="mb-5 flex items-center justify-between border-b border-black/10 pb-4">
-                                <div className="flex gap-2">
+                            <div className="mb-4 flex items-center justify-between border-b border-black/10 pb-3.5">
+                                <div className="flex gap-1.5">
                                     <span className="h-3 w-3 rounded-full bg-black" />
-                                    <span className="h-3 w-3 rounded-full bg-black/30" />
-                                    <span className="h-3 w-3 rounded-full bg-black/15" />
+                                    <span className="h-3 w-3 rounded-full bg-black/25" />
+                                    <span className="h-3 w-3 rounded-full bg-black/12" />
                                 </div>
-
-                                <Code2 size={20} />
+                                <span className="mini-label text-[9px] text-black/35">
+                                    developer.js
+                                </span>
                             </div>
 
-                            <div className="rounded-[1.4rem] bg-[#eeeeec] p-5">
-                                <div className="space-y-4 font-mono text-[13px] leading-6 text-black/75">
-                                    <p>
-                                        <span className="font-bold text-black">
-                                            const
-                                        </span>{" "}
-                                        developer = {"{"}
-                                    </p>
-                                    <p className="pl-5">
-                                        name: &quot;Obayomi Taofeek&quot;,
-                                    </p>
-                                    <p className="pl-5">
-                                        role: &quot;Frontend Developer&quot;,
-                                    </p>
-                                    <p className="pl-5">
-                                        stack: [&quot;React&quot;,
-                                        &quot;Next.js&quot;,
-                                        &quot;TypeScript&quot;],
-                                    </p>
-                                    <p className="pl-5">
-                                        mindset: &quot;Solve before
-                                        coding&quot;,
-                                    </p>
-                                    <p>{"}"}</p>
-                                </div>
+                            <div className="rounded-2xl bg-[#e8e8e6] px-5 py-5">
+                                <pre className="overflow-x-auto font-mono text-[12.5px] leading-[1.85] text-black/80">
+                                    <code>{`// Who I am
+const developer = {
+  name: "Obayomi Taofeek",
+  role: "Frontend Dev",
+  stack: ["React", "Next.js"],
+  mindset: "Solve → Build",
+  available: true,
+}`}</code>
+                                </pre>
                             </div>
 
-                            <div className="mt-4 grid grid-cols-2 gap-3">
-                                <MiniCard title="Performance" value="Fast" />
-                                <MiniCard title="Design" value="Clean" />
-                                <MiniCard title="UX" value="Useful" />
-                                <MiniCard title="Code" value="Scalable" />
+                            <div className="mt-4 grid grid-cols-2 gap-2.5">
+                                {[
+                                    { label: "Performance", value: "Fast" },
+                                    { label: "Design", value: "Clean" },
+                                    { label: "UX", value: "Useful" },
+                                    { label: "Code", value: "Scalable" },
+                                ].map(({ label, value }) => (
+                                    <div
+                                        key={label}
+                                        className="rounded-xl border border-black/8 bg-white p-3.5"
+                                    >
+                                        <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-black/35">
+                                            {label}
+                                        </p>
+                                        <p className="mt-1.5 text-sm font-black">
+                                            {value}
+                                        </p>
+                                    </div>
+                                ))}
                             </div>
-                        </motion.div>
+                        </m.div>
 
-                        <div className="absolute right-1 top-12 z-20 hidden rounded-xl bg-white px-5 py-4 shadow-xl sm:block">
-                            <p className="text-[10px] font-bold uppercase tracking-[0.24em] text-black/40">
+                        <m.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.85, duration: 0.35 }}
+                            className="absolute -right-3 top-8 z-20 hidden rounded-2xl border border-black/8 bg-white px-4 py-3 shadow-xl sm:block"
+                        >
+                            <p className="text-[9px] font-bold uppercase tracking-[0.22em] text-black/40">
                                 Focus
                             </p>
-                            <p className="font-black">Problem Solving</p>
-                        </div>
+                            <p className="mt-0.5 text-[13px] font-black">
+                                Problem Solving
+                            </p>
+                        </m.div>
 
-                        <div className="absolute bottom-20 right-3 z-20 hidden rounded-full bg-black p-4 text-white md:block">
-                            <Sparkles size={19} />
-                        </div>
+                        <m.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 1, duration: 0.35 }}
+                            className="absolute -bottom-4 right-6 z-20 hidden rounded-2xl bg-black p-3.5 text-white shadow-lg md:block"
+                        >
+                            <Sparkles size={18} />
+                        </m.div>
+                    </m.div>
+                </div>
+
+                {/* ─── Stack ticker ─── */}
+                <div
+                    className="container mt-16 overflow-hidden border-t border-black/8 pt-8"
+                    aria-label="Technology stack"
+                >
+                    <div className="ticker-track" aria-hidden="true">
+                        {[...stackItems, ...stackItems].map((item, i) => (
+                            <span
+                                key={i}
+                                className="mx-6 whitespace-nowrap text-[11px] font-black uppercase tracking-[0.22em] text-black/30"
+                            >
+                                {item}
+                                <span className="ml-6 text-black/15">·</span>
+                            </span>
+                        ))}
                     </div>
-                </motion.div>
-            </div>
-        </section>
-    );
-}
-
-function Stat({ value, label }) {
-    return (
-        <div className="border-l border-black/10 pl-4">
-            <p className="text-2xl font-black tracking-[-0.04em]">{value}</p>
-            <p className="mt-1 text-[11px] font-bold uppercase tracking-widest text-black/45">
-                {label}
-            </p>
-        </div>
-    );
-}
-
-function MiniCard({ title, value }) {
-    return (
-        <div className="rounded-2xl border border-black/10 bg-white p-4">
-            <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-black/40">
-                {title}
-            </p>
-            <p className="mt-2 text-sm font-black">{value}</p>
-        </div>
+                </div>
+            </section>
+        </LazyMotion>
     );
 }

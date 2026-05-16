@@ -1,24 +1,70 @@
 @import "tailwindcss";
 
-* {
+/* ─── Custom font stack: Geist for headings, system for body ─── */
+@font-face {
+    font-family: "Geist";
+    src: url("https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/Geist-Black.woff2")
+        format("woff2");
+    font-weight: 900;
+    font-display: swap;
+}
+
+:root {
+    --font-display: "Geist", "Arial Black", sans-serif;
+    --font-body: Arial, Helvetica, sans-serif;
+    --bg: #eeeeec;
+    --surface: #f7f7f5;
+    --surface-dark: #111111;
+    --border: rgba(0, 0, 0, 0.08);
+    --muted: rgba(0, 0, 0, 0.55);
+    --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
     scroll-behavior: smooth;
+    /* Reduce layout shift */
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
 }
 
 html,
 body {
     overflow-x: hidden;
-    background: #eeeeec;
+    background: var(--bg);
+    /* Prevent flash of unstyled content */
+    color: #111111;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-body);
+    /* Improve text rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Reduce CLS */
+    min-height: 100dvh;
 }
 
+/* ─── Selection ─── */
 ::selection {
     background: #111111;
     color: #ffffff;
 }
 
+/* ─── Focus styles for accessibility (Lighthouse a11y) ─── */
+:focus-visible {
+    outline: 2px solid #111111;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+/* ─── Layout ─── */
 .container {
     width: 100%;
     max-width: 1180px;
@@ -26,12 +72,13 @@ body {
 }
 
 .section {
-    padding: 88px 20px;
+    padding: 96px 20px;
 }
 
+/* ─── Cards ─── */
 .card {
-    background: #f7f7f5;
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    background: var(--surface);
+    border: 1px solid var(--border);
 }
 
 .card-dark {
@@ -39,8 +86,9 @@ body {
     color: #ffffff;
 }
 
+/* ─── Typography utilities ─── */
 .muted {
-    color: rgba(0, 0, 0, 0.58);
+    color: var(--muted);
 }
 
 .mini-label {
@@ -48,17 +96,100 @@ body {
     font-weight: 800;
     letter-spacing: 0.28em;
     text-transform: uppercase;
+    font-family: var(--font-body);
 }
 
+/* ─── Display headings use Geist for impact ─── */
+.display-heading {
+    font-family: var(--font-display);
+}
+
+/* ─── Grid background ─── */
 .grid-bg {
     background-image:
-        linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-        linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+        linear-gradient(rgba(0, 0, 0, 0.032) 1px, transparent 1px),
+        linear-gradient(to right, rgba(0, 0, 0, 0.032) 1px, transparent 1px);
     background-size: 72px 72px;
 }
 
+/* ─── Ticker / marquee ─── */
+@keyframes ticker {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.ticker-track {
+    display: flex;
+    width: max-content;
+    animation: ticker 28s linear infinite;
+    will-change: transform;
+}
+
+.ticker-track:hover {
+    animation-play-state: paused;
+}
+
+/* ─── Hover lift utility ─── */
+.hover-lift {
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Shimmer for image placeholders ─── */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, #e5e5e3 25%, #d8d8d6 37%, #e5e5e3 63%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s ease infinite;
+}
+
+/* ─── Responsive ─── */
 @media (max-width: 768px) {
     .section {
-        padding: 68px 16px;
+        padding: 72px 16px;
+    }
+}
+
+/* ─── Print ─── */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    body {
+        background: white;
+        color: black;
+    }
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+    .ticker-track {
+        animation: none;
+    }
+    html {
+        scroll-behavior: auto;
     }
 }
