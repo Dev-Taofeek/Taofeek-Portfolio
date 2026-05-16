@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Obayomi Taofeek — Frontend Developer Portfolio
 
-## Getting Started
+A modern, responsive, and professional portfolio website built to showcase my frontend development skills, selected projects, experience, and contact information.
 
-First, run the development server:
+This portfolio focuses on more than just design. It highlights how I approach frontend development through problem-solving, clean UI, responsive layouts, project case studies, and real-world product thinking.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Live Demo
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+[View Portfolio](https://taofeek-portfolio.vercel.app/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## About
 
-To learn more about Next.js, take a look at the following resources:
+I’m Obayomi Taofeek, a Frontend Developer focused on building clean, responsive, and user-friendly web experiences using modern frontend technologies.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This portfolio was created to present my work, skills, projects, and experience in a professional way for recruiters, clients, and collaborators.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Clean and modern portfolio design
+- Fully responsive layout
+- Smooth animations with Framer Motion
+- Project cards with live previews
+- Detailed project case study pages
+- Fullscreen project screenshot preview
+- Skills section with custom SVG icons
+- Resume and vCard download
+- Working contact form with Web3Forms
+- SEO-ready metadata
+- Sitemap and robots configuration
+- Mobile-friendly navigation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Tech Stack
+
+- Next.js
+- React
+- JavaScript
+- Tailwind CSS
+- Framer Motion
+- Lucide React
+- Web3Forms
+
+---
+
+## Main Sections
+
+- Hero
+- About
+- Why Hire Me
+- Skills
+- Projects
+- Experience
+- Currently Building
+- Contact
+
+---
+
+## Featured Projects
+
+### Camp Connect
+
+A social platform for NYSC corps members to connect, share updates, and access useful resources.
+
+### Gabriel Adewumni Portfolio
+
+A professional portfolio website built for a London-based Product Manager.
+
+### EduTest Pro
+
+An AI-powered CBT exam preparation platform with smart testing, feedback, and performance tracking.
+
+---
+
+## Project Structure
+
+```txt
+app/
+  layout.js
+  page.js
+  globals.css
+  robots.js
+  sitemap.js
+  projects/
+    [slug]/
+      page.js
+
+components/
+  Navbar.jsx
+  Hero.jsx
+  About.jsx
+  WhyHireMe.jsx
+  Skills.jsx
+  Projects.jsx
+  ProjectCard.jsx
+  ProjectScreenshots.jsx
+  Experience.jsx
+  CurrentlyBuilding.jsx
+  Contact.jsx
+  Footer.jsx
+  SectionHeader.jsx
+
+data/
+  portfolio.js
+
+public/
+  projects/
+    camp-connect-1.png
+    camp-connect-2.png
+    camp-connect-3.png
+    gabriel-portfolio-1.png
+    gabriel-portfolio-2.png
+    gabriel-portfolio-3.png
+    edutest-pro-1.png
+    edutest-pro-2.png
+    edutest-pro-3.png
+  Obayomi-Taofeek-Resume.pdf
+  obayomi-taofeek.vcf
+  favicon.ico
+  apple-touch-icon.png
+  og-image.png
