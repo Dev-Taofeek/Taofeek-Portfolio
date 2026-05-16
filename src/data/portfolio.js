@@ -26,69 +26,15 @@ export const skills = [
 
 export const projects = [
     {
-        slug: "camp-connect",
-        title: "Camp Connect",
-        type: "NYSC Social Platform",
-        shortDescription:
-            "A social platform for NYSC corps members to connect, share updates, and access useful resources.",
-        description:
-            "Camp Connect is a modern social platform designed for NYSC corps members. It helps corps members connect, communicate, share updates, and access useful camp-related resources through a clean and responsive user experience.",
-        problem:
-            "NYSC corps members need a simple and accessible way to connect with others, stay updated, and engage with camp-related information.",
-        solution:
-            "I built a responsive social-style platform with clean navigation, modern UI sections, mobile-first layouts, and interactive frontend experiences.",
-        role: "Frontend Developer",
-        stack: ["Next.js", "Tailwind CSS", "Firebase"],
-        features: [
-            "Responsive social-style interface",
-            "Clean landing page structure",
-            "Mobile-first layouts",
-            "User-focused navigation",
-            "Modern UI interactions",
-        ],
-        improvements: [
-            "Improved accessibility across devices",
-            "Created a cleaner user journey",
-            "Focused on real NYSC community needs",
-        ],
-        live: "https://mvp-1-pi.vercel.app/",
-        github: "https://github.com/Dev-Taofeek?tab=repositories",
-        year: "2026",
-    },
-    {
-        slug: "gabriel-adewumni-portfolio",
-        title: "Gabriel Adewumni Portfolio",
-        type: "Client Portfolio Website",
-        shortDescription:
-            "A professional portfolio website for a London-based Product Manager.",
-        description:
-            "A modern portfolio website built for Gabriel Adewumni, a London-based Product Manager. The website presents his experience, work, skills, and personal brand in a clean and professional way.",
-        problem:
-            "The client needed a credible online presence that clearly communicated his professional value and product management experience.",
-        solution:
-            "I designed and developed a clean, responsive portfolio with strong content structure, smooth sections, and a polished interface that works across all devices.",
-        role: "Frontend Developer",
-        stack: ["React", "Tailwind CSS", "Framer Motion"],
-        features: [
-            "Professional personal brand layout",
-            "Responsive portfolio sections",
-            "Smooth page interactions",
-            "Clear project presentation",
-            "Contact-focused structure",
-        ],
-        improvements: [
-            "Improved online credibility",
-            "Created a stronger personal brand presence",
-            "Made the content easier for recruiters and clients to scan",
-        ],
-        live: "https://gabirel-portfolio.vercel.app/",
-        github: "https://github.com/Dev-Taofeek/Gabirel-Portfolio",
-        year: "2026",
-    },
-    {
         slug: "edutest-pro",
         title: "EduTest Pro",
         type: "AI-Powered CBT Platform",
+        image: "/projects/edutest-pro-1.webp",
+        images: [
+            "/projects/edutest-pro-1.webp",
+            "/projects/edutest-pro-2.webp",
+            "/projects/edutest-pro-3.webp",
+        ],
         shortDescription:
             "An exam preparation platform with smart testing, feedback, and performance tracking.",
         description:
@@ -119,6 +65,80 @@ export const projects = [
         ],
         live: "https://online-cbt-exam.vercel.app/",
         github: "https://github.com/Dev-Taofeek/Edu-Test-Pro",
+        year: "2026",
+    },
+
+    {
+        slug: "camp-connect",
+        title: "Camp Connect",
+        type: "NYSC Social Platform",
+        image: "/projects/camp-connect-1.webp",
+        images: [
+            "/projects/camp-connect-1.webp",
+            "/projects/camp-connect-2.webp",
+            "/projects/camp-connect-3.webp",
+        ],
+        shortDescription:
+            "A social platform for NYSC corps members to connect, share updates, and access useful resources.",
+        description:
+            "Camp Connect is a modern social platform designed for NYSC corps members. It helps corps members connect, communicate, share updates, and access useful camp-related resources through a clean and responsive user experience.",
+        problem:
+            "NYSC corps members need a simple and accessible way to connect with others, stay updated, and engage with camp-related information.",
+        solution:
+            "I built a responsive social-style platform with clean navigation, modern UI sections, mobile-first layouts, and interactive frontend experiences.",
+        role: "Frontend Developer",
+        stack: ["Next.js", "Tailwind CSS", "Firebase"],
+        features: [
+            "Responsive social-style interface",
+            "Clean landing page structure",
+            "Mobile-first layouts",
+            "User-focused navigation",
+            "Modern UI interactions",
+        ],
+        improvements: [
+            "Improved accessibility across devices",
+            "Created a cleaner user journey",
+            "Focused on real NYSC community needs",
+        ],
+        live: "https://mvp-1-pi.vercel.app/",
+        github: "https://github.com/Dev-Taofeek?tab=repositories",
+        year: "2026",
+    },
+
+    {
+        slug: "gabriel-adewumni-portfolio",
+        title: "Gabriel Adewumni Portfolio",
+        type: "Client Portfolio Website",
+        image: "/projects/gabriel-portfolio-1.webp",
+        images: [
+            "/projects/gabriel-portfolio-1.webp",
+            "/projects/gabriel-portfolio-2.webp",
+            "/projects/gabriel-portfolio-3.webp",
+        ],
+        shortDescription:
+            "A professional portfolio website for a London-based Product Manager.",
+        description:
+            "A modern portfolio website built for Gabriel Adewumni, a London-based Product Manager. The website presents his experience, work, skills, and personal brand in a clean and professional way.",
+        problem:
+            "The client needed a credible online presence that clearly communicated his professional value and product management experience.",
+        solution:
+            "I designed and developed a clean, responsive portfolio with strong content structure, smooth sections, and a polished interface that works across all devices.",
+        role: "Frontend Developer",
+        stack: ["React", "Tailwind CSS", "Framer Motion"],
+        features: [
+            "Professional personal brand layout",
+            "Responsive portfolio sections",
+            "Smooth page interactions",
+            "Clear project presentation",
+            "Contact-focused structure",
+        ],
+        improvements: [
+            "Improved online credibility",
+            "Created a stronger personal brand presence",
+            "Made the content easier for recruiters and clients to scan",
+        ],
+        live: "https://gabirel-portfolio.vercel.app/",
+        github: "https://github.com/Dev-Taofeek/Gabirel-Portfolio",
         year: "2026",
     },
 ];

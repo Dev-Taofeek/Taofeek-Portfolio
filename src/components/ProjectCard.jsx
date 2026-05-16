@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Layers } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function ProjectCard({ project, index }) {
     return (
@@ -15,37 +16,43 @@ export default function ProjectCard({ project, index }) {
         >
             <Link
                 href={`/projects/${project.slug}`}
-                className="group flex h-full min-h-130 flex-col overflow-hidden rounded-[1.7rem] border border-black/10 bg-[#f7f7f5] transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/10"
+                className="group flex h-full min-h-125 flex-col overflow-hidden rounded-[1.7rem] border border-black/10 bg-[#f7f7f5] transition duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-black/10"
             >
-                <div className="relative h-52 shrink-0 overflow-hidden border-b border-black/10 bg-[#e5e5e1] p-5">
-                    <div className="absolute inset-0 grid-bg opacity-60" />
+                <div className="relative h-56 shrink-0 overflow-hidden border-b border-black/10 bg-[#e5e5e1] p-3">
+                    <div className="relative h-full overflow-hidden rounded-[1.2rem] border border-black/10 bg-[#eeeeec] shadow-xl shadow-black/5">
+                        <Image
+                            src={project.image}
+                            alt={`${project.title} screenshot`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover object-top transition duration-700 group-hover:scale-105 rounded-[1.2rem]"
+                        />
 
-                    <div className="relative z-10 h-full rounded-[1.2rem] border border-black/10 bg-[#eeeeec] p-4 shadow-xl shadow-black/5 transition duration-500 group-hover:-translate-y-2">
-                        <div className="flex items-center justify-between">
+                        <div className="absolute inset-x-0 top-0 flex items-center justify-between bg-white/80 px-4 py-3 backdrop-blur-md">
                             <div className="flex gap-2">
                                 <span className="h-2.5 w-2.5 rounded-full bg-black" />
                                 <span className="h-2.5 w-2.5 rounded-full bg-black/25" />
                                 <span className="h-2.5 w-2.5 rounded-full bg-black/15" />
                             </div>
 
-                            <Layers size={17} />
-                        </div>
-
-                        <div className="mt-10">
-                            <p className="text-[10px] font-black uppercase tracking-[0.22em] text-black/35">
-                                {project.type}
-                            </p>
-
-                            <h3 className="mt-3 max-w-65 text-2xl font-black leading-tight tracking-[-0.04em]">
-                                {project.title}
-                            </h3>
+                            <span className="text-[10px] font-black uppercase tracking-[0.18em] text-black/40">
+                                Preview
+                            </span>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">
                     <div>
-                        <p className="text-sm leading-7 text-black/60">
+                        <p className="text-[10px] font-black uppercase tracking-[0.22em] text-black/35">
+                            {project.type}
+                        </p>
+
+                        <h3 className="mt-3 text-2xl font-black leading-tight tracking-[-0.04em]">
+                            {project.title}
+                        </h3>
+
+                        <p className="mt-3 text-sm leading-7 text-black/60">
                             {project.shortDescription}
                         </p>
 

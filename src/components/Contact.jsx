@@ -18,20 +18,27 @@ export default function Contact() {
         const form = e.currentTarget;
         const formData = new FormData(form);
 
-        formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
+        formData.append(
+            "access_key",
+            process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+        );
 
-        const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData,
-        });
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData,
+            });
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (data.success) {
-            alert("Message sent successfully!");
-            form.reset();
-        } else {
-            alert("Something went wrong. Please email me directly.");
+            if (data.success) {
+                alert("Message sent successfully!");
+                form.reset();
+            } else {
+                alert("Something went wrong. Please email me directly.");
+            }
+        } catch (error) {
+            alert("Network error. Please email me directly.");
         }
     }
 
@@ -96,6 +103,18 @@ export default function Contact() {
                         viewport={{ once: true }}
                         className="rounded-4xl border border-black/10 bg-[#f7f7f5] p-5 sm:p-6 lg:p-8"
                     >
+                        <input
+                            type="hidden"
+                            name="from_name"
+                            value="Obayomi Taofeek Portfolio"
+                        />
+
+                        <input
+                            type="hidden"
+                            name="subject"
+                            value="New message from Obayomi Taofeek's portfolio"
+                        />
+
                         <div className="mb-8">
                             <p className="text-[11px] font-black uppercase tracking-[0.24em] text-black/35">
                                 Message
@@ -131,7 +150,7 @@ export default function Contact() {
                         <div className="mt-4">
                             <Field
                                 label="Subject"
-                                name="subject"
+                                name="message_subject"
                                 placeholder="Project inquiry / Job opportunity"
                                 type="text"
                             />

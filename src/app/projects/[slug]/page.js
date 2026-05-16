@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, ExternalLink } from "lucide-react";
 import { projects } from "@/data/portfolio";
+import ProjectScreenshots from "@/components/ProjectScreenshots";
 
 export function generateStaticParams() {
     return projects.map((project) => ({
@@ -106,7 +107,7 @@ export default async function ProjectDetails({ params }) {
                     </div>
 
                     <div className="space-y-5">
-                        <OverviewCard project={project} />
+                        <ProjectScreenshots project={project} />
 
                         <DetailBlock
                             title="The Problem"
@@ -149,42 +150,6 @@ export default async function ProjectDetails({ params }) {
                 </section>
             </div>
         </main>
-    );
-}
-
-function OverviewCard({ project }) {
-    return (
-        <div className="rounded-4xl border border-black/10 bg-[#f7f7f5] p-5 md:p-8">
-            <p className="text-[11px] font-black uppercase tracking-[0.24em] text-black/35">
-                Overview
-            </p>
-
-            <div className="mt-8 rounded-3xl border border-black/10 bg-[#e5e5e1] p-5">
-                <div className="mb-4 flex items-center justify-between">
-                    <div className="flex gap-2">
-                        <span className="h-2.5 w-2.5 rounded-full bg-black" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-black/25" />
-                        <span className="h-2.5 w-2.5 rounded-full bg-black/15" />
-                    </div>
-
-                    <ArrowUpRight size={17} />
-                </div>
-
-                <div className="grid-bg min-h-65 rounded-[1.2rem] border border-black/10 bg-[#eeeeec] p-6">
-                    <p className="text-[11px] font-black uppercase tracking-[0.24em] text-black/35">
-                        Case Study
-                    </p>
-
-                    <h2 className="mt-4 max-w-md text-3xl font-black tracking-[-0.04em]">
-                        {project.title}
-                    </h2>
-
-                    <p className="mt-4 max-w-xl text-sm leading-7 text-black/60">
-                        {project.shortDescription}
-                    </p>
-                </div>
-            </div>
-        </div>
     );
 }
 
