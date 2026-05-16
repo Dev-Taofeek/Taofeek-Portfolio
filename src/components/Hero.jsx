@@ -100,9 +100,9 @@ export default function Hero() {
                                         role: &quot;Frontend Developer&quot;,
                                     </p>
                                     <p className="pl-5">
-                                        stack: [&quot;Next.js&quot;,
-                                        &quot;React&quot;,
-                                        &quot;Tailwind&quot;],
+                                        stack: [&quot;React&quot;,
+                                        &quot;Next.js&quot;,
+                                        &quot;TypeScript&quot;],
                                     </p>
                                     <p className="pl-5">
                                         mindset: &quot;Solve before

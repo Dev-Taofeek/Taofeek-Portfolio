@@ -39,6 +39,18 @@ export const projects = [
             "I built a responsive social-style platform with clean navigation, modern UI sections, mobile-first layouts, and interactive frontend experiences.",
         role: "Frontend Developer",
         stack: ["Next.js", "Tailwind CSS", "Firebase"],
+        features: [
+            "Responsive social-style interface",
+            "Clean landing page structure",
+            "Mobile-first layouts",
+            "User-focused navigation",
+            "Modern UI interactions",
+        ],
+        improvements: [
+            "Improved accessibility across devices",
+            "Created a cleaner user journey",
+            "Focused on real NYSC community needs",
+        ],
         live: "https://mvp-1-pi.vercel.app/",
         github: "https://github.com/Dev-Taofeek?tab=repositories",
         year: "2026",
@@ -57,6 +69,18 @@ export const projects = [
             "I designed and developed a clean, responsive portfolio with strong content structure, smooth sections, and a polished interface that works across all devices.",
         role: "Frontend Developer",
         stack: ["React", "Tailwind CSS", "Framer Motion"],
+        features: [
+            "Professional personal brand layout",
+            "Responsive portfolio sections",
+            "Smooth page interactions",
+            "Clear project presentation",
+            "Contact-focused structure",
+        ],
+        improvements: [
+            "Improved online credibility",
+            "Created a stronger personal brand presence",
+            "Made the content easier for recruiters and clients to scan",
+        ],
         live: "https://gabirel-portfolio.vercel.app/",
         github: "https://github.com/Dev-Taofeek/Gabirel-Portfolio",
         year: "2026",
@@ -81,11 +105,24 @@ export const projects = [
             "Framer Motion",
             "Supabase",
         ],
+        features: [
+            "CBT exam interface",
+            "Smart timer system",
+            "Performance tracking",
+            "Anti-cheat exam flow",
+            "Responsive student dashboard",
+        ],
+        improvements: [
+            "Created a more realistic exam experience",
+            "Improved student practice structure",
+            "Made exam progress easier to monitor",
+        ],
         live: "https://online-cbt-exam.vercel.app/",
         github: "https://github.com/Dev-Taofeek/Edu-Test-Pro",
         year: "2026",
     },
 ];
+
 export const experiences = [
     {
         role: "Frontend Engineer",

@@ -12,189 +12,307 @@ import {
 import SectionHeader from "./SectionHeader";
 
 export default function Contact() {
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+
+        formData.append("access_key", "YOUR_WEB3FORMS_ACCESS_KEY");
+
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData,
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+            alert("Message sent successfully!");
+            form.reset();
+        } else {
+            alert("Something went wrong. Please email me directly.");
+        }
+    }
+
     return (
         <section id="contact" className="section">
             <div className="container">
-                <div className="overflow-hidden rounded-4xl bg-black text-white">
-                    <div className="grid gap-0 lg:grid-cols-[0.9fr_1.1fr]">
-                        <div className="border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10 xl:p-">
-                            <SectionHeader
-                                eyebrow="Contact"
-                                title="Have a project or role in mind? Let’s talk."
-                                text="I’m open to frontend roles, internships, freelance projects, and collaborations where I can build useful products."
+                <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+                    <SectionHeader
+                        eyebrow="Contact"
+                        title="Ready to build something useful?"
+                        text="I’m open to frontend roles, internships, freelance projects, and collaborations where I can help turn ideas into clean, responsive web products."
+                    />
+
+                    <div className="flex flex-wrap gap-3">
+                        <a
+                            href="/Obayomi-Taofeek-Resume.pdf"
+                            download
+                            className="inline-flex items-center gap-2 bg-black px-5 py-3 text-[11px] font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-1"
+                        >
+                            <Download size={14} />
+                            Resume
+                        </a>
+
+                        <a
+                            href="/obayomi-taofeek.vcf"
+                            download
+                            className="inline-flex items-center gap-2 border border-black/15 px-5 py-3 text-[11px] font-black uppercase tracking-[0.18em] text-black transition hover:-translate-y-1 hover:bg-black hover:text-white"
+                        >
+                            <UserRoundPlus size={14} />
+                            vCard
+                        </a>
+                    </div>
+                </div>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                    <ContactCard
+                        icon={Mail}
+                        label="Email"
+                        value="obayomitaofeek7@gmail.com"
+                        href="mailto:obayomitaofeek7@gmail.com"
+                    />
+
+                    <ContactCard
+                        icon={Phone}
+                        label="Phone"
+                        value="+234 704 857 8739"
+                        href="tel:+2347048578739"
+                    />
+
+                    <ContactCard
+                        icon={MapPin}
+                        label="Location"
+                        value="Ogun State, Nigeria"
+                    />
+                </div>
+
+                <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+                    <motion.form
+                        onSubmit={handleSubmit}
+                        initial={{ opacity: 0, y: 18 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="rounded-4xl border border-black/10 bg-[#f7f7f5] p-5 sm:p-6 lg:p-8"
+                    >
+                        <div className="mb-8">
+                            <p className="text-[11px] font-black uppercase tracking-[0.24em] text-black/35">
+                                Message
+                            </p>
+
+                            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em]">
+                                Tell me what you need.
+                            </h3>
+
+                            <p className="mt-3 max-w-xl text-sm leading-7 text-black/60">
+                                Whether it’s a job opportunity, freelance
+                                project, or collaboration, send the details and
+                                I’ll respond as soon as possible.
+                            </p>
+                        </div>
+
+                        <div className="grid gap-4 md:grid-cols-2">
+                            <Field
+                                label="Name"
+                                name="name"
+                                placeholder="Your name"
+                                type="text"
                             />
 
-                            <div className="space-y-4">
-                                <ContactItem
-                                    icon={Mail}
-                                    text="obayomitaofeek7@gmail.com"
-                                    href="mailto:obayomitaofeek7@gmail.com"
-                                />
+                            <Field
+                                label="Email"
+                                name="email"
+                                placeholder="your@email.com"
+                                type="email"
+                            />
+                        </div>
 
-                                <ContactItem
-                                    icon={Phone}
-                                    text="+234 704 857 8739"
-                                    href="tel:+2347048578739"
-                                />
+                        <div className="mt-4">
+                            <Field
+                                label="Subject"
+                                name="subject"
+                                placeholder="Project inquiry / Job opportunity"
+                                type="text"
+                            />
+                        </div>
 
-                                <ContactItem
-                                    icon={MapPin}
-                                    text="Ogun State, Nigeria"
-                                />
-                            </div>
+                        <div className="mt-4">
+                            <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.2em] text-black/40">
+                                Message
+                            </label>
 
-                            <div className="my-4 grid gap-3 sm:grid-cols-2">
-                                <a
-                                    href="/Obayomi-Taofeek-Resume.pdf"
-                                    download
-                                    className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-xs font-black uppercase tracking-[0.18em] text-black transition hover:-translate-y-1"
-                                >
-                                    <Download size={15} />
-                                    Resume
-                                </a>
+                            <textarea
+                                name="message"
+                                required
+                                placeholder="Tell me about your project, role, or idea..."
+                                className="h-44 w-full resize-none rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-black/40"
+                            />
+                        </div>
 
-                                <a
-                                    href="/obayomi-taofeek.vcf"
-                                    download
-                                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 px-4 py-3 text-xs font-black uppercase tracking-[0.18em] text-white transition hover:-translate-y-1 hover:bg-white hover:text-black"
-                                >
-                                    <UserRoundPlus size={15} />
-                                    vCard
-                                </a>
-                            </div>
+                        <button
+                            type="submit"
+                            className="mt-4 flex w-full items-center justify-center gap-2 rounded-2xl bg-black px-5 py-4 text-[11px] font-black uppercase tracking-[0.2em] text-white transition hover:-translate-y-1"
+                        >
+                            Send Message <Send size={14} />
+                        </button>
+                    </motion.form>
 
-                            <div className="mt-2 lg:mt-4 flex flex-wrap gap-3">
+                    <aside className="grid gap-4">
+                        <div className="rounded-4xl bg-black p-6 text-white sm:p-7">
+                            <p className="text-[11px] font-black uppercase tracking-[0.24em] text-white/35">
+                                Availability
+                            </p>
+
+                            <h3 className="mt-4 text-2xl font-black leading-tight tracking-[-0.04em]">
+                                Open to frontend opportunities.
+                            </h3>
+
+                            <p className="mt-4 text-sm leading-7 text-white/60">
+                                Available for junior frontend roles,
+                                internships, freelance work, and collaborations.
+                            </p>
+                        </div>
+
+                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
+                            <MiniInfoCard
+                                title="What I Build"
+                                items={[
+                                    "Portfolio websites",
+                                    "Landing pages",
+                                    "Dashboards",
+                                    "Web apps",
+                                ]}
+                            />
+
+                            <MiniInfoCard
+                                title="My Focus"
+                                items={[
+                                    "Responsive design",
+                                    "Clean UI",
+                                    "Smooth interactions",
+                                    "Problem solving",
+                                ]}
+                            />
+                        </div>
+
+                        <div className="rounded-4xl border border-black/10 bg-[#f7f7f5] p-6">
+                            <p className="text-[11px] font-black uppercase tracking-[0.24em] text-black/35">
+                                Social Links
+                            </p>
+
+                            <div className="mt-5 flex flex-wrap gap-3">
                                 <Social
                                     icon={GithubIcon}
                                     link="https://github.com/Dev-Taofeek?tab=repositories"
                                     label="GitHub"
+                                    dark
                                 />
 
                                 <Social
                                     icon={LinkedinIcon}
                                     link="https://www.linkedin.com/in/taofeek-obayomi-a7b29a36b/"
                                     label="LinkedIn"
+                                    dark
                                 />
 
                                 <Social
                                     icon={Mail}
                                     link="mailto:obayomitaofeek7@gmail.com"
                                     label="Email"
+                                    dark
                                 />
                             </div>
                         </div>
-
-                        <motion.form
-                            initial={{ opacity: 0, y: 18 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            className="p-4 sm:p-6 lg:p-8 xl:p-10"
-                        >
-                            <div className="rounded-3xl border border-white/10 bg-white/6 p-4 sm:p-5 md:p-6">
-                                <div className="grid gap-4 md:grid-cols-2">
-                                    <Field
-                                        label="Name"
-                                        placeholder="Your name"
-                                        type="text"
-                                    />
-
-                                    <Field
-                                        label="Email"
-                                        placeholder="your@email.com"
-                                        type="email"
-                                    />
-                                </div>
-
-                                <div className="mt-4">
-                                    <Field
-                                        label="Subject"
-                                        placeholder="Project inquiry / Job opportunity"
-                                        type="text"
-                                    />
-                                </div>
-
-                                <div className="mt-4">
-                                    <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
-                                        Message
-                                    </label>
-
-                                    <textarea
-                                        placeholder="Tell me about your project, role, or idea..."
-                                        className="h-36 w-full resize-none rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-white/40 sm:h-44"
-                                    />
-                                </div>
-
-                                <button
-                                    type="button"
-                                    className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-black transition hover:-translate-y-1"
-                                >
-                                    Send Message <Send size={14} />
-                                </button>
-
-                                <p className="mt-4 text-center text-xs leading-6 text-white/35">
-                                    Prefer direct contact? Email me and I’ll
-                                    respond as soon as possible.
-                                </p>
-                            </div>
-                        </motion.form>
-                    </div>
+                    </aside>
                 </div>
             </div>
         </section>
     );
 }
 
-function Field({ label, placeholder, type }) {
-    return (
-        <div>
-            <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.2em] text-white/40">
-                {label}
-            </label>
-
-            <input
-                type={type}
-                placeholder={placeholder}
-                className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white outline-none transition placeholder:text-white/30 focus:border-white/40"
-            />
-        </div>
-    );
-}
-
-function ContactItem({ icon: Icon, text, href }) {
+function ContactCard({ icon: Icon, label, value, href }) {
     const content = (
-        <>
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white/10">
-                <Icon size={17} />
+        <div className="group flex min-h-35 flex-col justify-between rounded-3xl border border-black/10 bg-[#f7f7f5] p-5 transition hover:-translate-y-1 hover:bg-black hover:text-white">
+            <div className="flex items-center justify-between gap-4">
+                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-black text-white transition group-hover:bg-white group-hover:text-black">
+                    <Icon size={17} />
+                </div>
+
+                <span className="text-[10px] font-black uppercase tracking-[0.22em] text-black/35 transition group-hover:text-white/35">
+                    {label}
+                </span>
             </div>
 
-            <span className="break-all text-sm text-white/65 sm:break-normal">
-                {text}
-            </span>
-        </>
+            <p className="mt-6 wrap-break-word text-sm font-bold leading-6 text-black/70 transition group-hover:text-white/75">
+                {value}
+            </p>
+        </div>
     );
 
     if (href) {
         return (
-            <a
-                href={href}
-                className="flex items-center gap-3 rounded-2xl transition hover:text-white"
-            >
+            <a href={href} className="block">
                 {content}
             </a>
         );
     }
 
-    return <div className="flex items-center gap-3">{content}</div>;
+    return content;
 }
 
-function Social({ icon: Icon, link, label }) {
+function Field({ label, placeholder, type, name }) {
+    return (
+        <div>
+            <label className="mb-2 block text-[11px] font-black uppercase tracking-[0.2em] text-black/40">
+                {label}
+            </label>
+
+            <input
+                name={name}
+                type={type}
+                placeholder={placeholder}
+                required
+                className="w-full rounded-2xl border border-black/10 bg-white px-4 py-3 text-sm text-black outline-none transition placeholder:text-black/35 focus:border-black/40"
+            />
+        </div>
+    );
+}
+
+function MiniInfoCard({ title, items }) {
+    return (
+        <div className="rounded-4xl border border-black/10 bg-[#f7f7f5] p-6">
+            <p className="text-[11px] font-black uppercase tracking-[0.24em] text-black/35">
+                {title}
+            </p>
+
+            <div className="mt-5 space-y-3">
+                {items.map((item) => (
+                    <div
+                        key={item}
+                        className="flex items-center gap-3 text-sm font-medium text-black/65"
+                    >
+                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-black" />
+                        <span>{item}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+function Social({ icon: Icon, link, label, dark = false }) {
     return (
         <a
             href={link}
             target="_blank"
             rel="noopener noreferrer"
             aria-label={label}
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/5 text-white transition hover:-translate-y-1 hover:bg-white hover:text-black"
+            className={`grid h-11 w-11 place-items-center rounded-full transition hover:-translate-y-1 ${
+                dark
+                    ? "border border-black/10 bg-white text-black hover:bg-black hover:text-white"
+                    : "border border-white/10 bg-white/5 text-white hover:bg-white hover:text-black"
+            }`}
         >
             <Icon className="h-5 w-5" />
         </a>
