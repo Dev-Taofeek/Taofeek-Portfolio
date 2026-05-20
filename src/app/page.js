@@ -1,10 +1,8 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
-import WhyHireMe from "@/components/WhyHireMe";
-import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
-import Experience from "@/components/Experience";
+import Skills from "@/components/Skills";
+import About from "@/components/About";
 import CurrentlyBuilding from "@/components/CurrentlyBuilding";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -14,11 +12,9 @@ export default function Home() {
         <main className="min-h-screen overflow-hidden bg-[#eeeeec] text-[#111111]">
             <Navbar />
             <Hero />
-            <About />
-            <WhyHireMe />
-            <Skills />
             <Projects />
-            <Experience />
+            <Skills />
+            <About />
             <CurrentlyBuilding />
             <Contact />
             <Footer />

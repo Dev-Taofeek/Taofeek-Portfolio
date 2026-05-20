@@ -128,7 +128,7 @@ export default function Navbar() {
                     </a>
 
                     <a
-                        href="/Obayomi-Taofeek-Resume.pdf"
+                        href="/Obayomi%20Taofeek%20-%20Software%20Engineer.pdf"
                         download
                         className="inline-flex rounded-full bg-black px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-white transition-all hover:-translate-y-0.5 hover:shadow-md hover:shadow-black/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
                         aria-label="Download my resume"
@@ -200,7 +200,7 @@ export default function Navbar() {
 
                             <div className="mt-2 grid grid-cols-2 gap-2 border-t border-black/8 pt-2">
                                 <a
-                                    href="/Obayomi-Taofeek-Resume.pdf"
+                                    href="/Obayomi%20Taofeek%20-%20Software%20Engineer.pdf"
                                     download
                                     onClick={() => setOpen(false)}
                                     className="rounded-[1.2rem] bg-black px-4 py-3 text-center text-[10px] font-black uppercase tracking-[0.18em] text-white transition-all hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black"
