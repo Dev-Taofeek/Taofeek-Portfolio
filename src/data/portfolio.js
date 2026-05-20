@@ -1,9 +1,8 @@
 export const navLinks = [
     "Home",
-    "About",
+    "Work",
     "Skills",
-    "Projects",
-    "Experience",
+    "About",
     "Contact",
 ];
 

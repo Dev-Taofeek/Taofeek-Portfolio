@@ -10,7 +10,7 @@ import { projects } from "@/data/portfolio";
 export default function Projects() {
     return (
         <section
-            id="projects"
+            id="work"
             className="section"
             aria-labelledby="projects-heading"
         >
