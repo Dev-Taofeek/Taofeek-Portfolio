@@ -1,10 +1,4 @@
-export const navLinks = [
-    "Home",
-    "Work",
-    "Skills",
-    "About",
-    "Contact",
-];
+export const navLinks = ["Home", "Work", "Skills", "About", "Contact"];
 
 export const skills = [
     { name: "HTML5", icon: "html" },
