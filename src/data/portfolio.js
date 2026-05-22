@@ -25,6 +25,58 @@ export const skills = [
 
 export const projects = [
     {
+        slug: "flexflow",
+        title: "FlexFlow",
+        type: "Full-Stack Project Management SaaS",
+        image: "/projects/flexflow-1.webp",
+        images: [
+            "/projects/flexflow-1.webp",
+            "/projects/flexflow-2.webp",
+            "/projects/flexflow-3.webp",
+        ],
+        shortDescription:
+            "A production-grade project management app with Kanban boards, real-time updates, multi-workspace orgs, and role-based access control.",
+        description:
+            "FlexFlow is a full-stack SaaS project management platform built as a Jira/Linear alternative. It supports multi-organization and multi-workspace structures, real-time Kanban drag-and-drop, multiple issue assignees, activity feeds, in-app notifications, and a complete settings system with 2FA, profile management, and team invites.",
+        problem:
+            "Teams need a lightweight but powerful project management tool that supports real collaboration — multiple assignees, real-time updates, workspace-level access control, and email notifications — without paying enterprise prices.",
+        solution:
+            "I built a full-stack monorepo application with a Next.js frontend and an Express.js REST API, backed by PostgreSQL via Neon. The app features JWT-based auth with silent token refresh, Socket.io for real-time Kanban sync, Resend for transactional emails, and a free-tier gate that limits organizations and workspaces to encourage upgrades.",
+        role: "Full-Stack Developer",
+        stack: [
+            "Next.js 16",
+            "React 19",
+            "TypeScript",
+            "Express.js",
+            "Prisma",
+            "PostgreSQL",
+            "Socket.io",
+            "NextAuth v4",
+            "Tailwind CSS v4",
+            "Turborepo",
+        ],
+        features: [
+            "Kanban board with real-time drag-and-drop",
+            "Multi-org and multi-workspace (up to 3 free)",
+            "Multiple issue assignees with email notifications",
+            "Role-based access control (Owner, Admin, Member)",
+            "In-app notifications + toast alerts",
+            "Team invites via email or shareable invite code",
+            "2FA setup with TOTP (Google Authenticator)",
+            "Profile, password, and settings management",
+            "Project activity feed with load-more pagination",
+            "GitHub OAuth + Google OAuth sign-in",
+        ],
+        improvements: [
+            "Reduced notification polling from 30s to 180s to prevent cold-start spam on free hosting",
+            "Silent JWT token refresh eliminates session dropouts without re-login",
+            "Free-tier limits (1 org, 3 workspaces) with clear upgrade prompts instead of silent failures",
+        ],
+        live: "https://flexflow-site.vercel.app",
+        github: "https://github.com/Dev-Taofeek/Flexflow-site",
+        year: "2026",
+    },
+    {
         slug: "edutest-pro",
         title: "EduTest Pro",
         type: "AI-Powered CBT Platform",

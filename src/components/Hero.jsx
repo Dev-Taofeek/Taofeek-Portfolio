@@ -120,7 +120,7 @@ export default function Hero() {
                             className="mt-9 flex flex-wrap gap-3"
                         >
                             <a
-                                href="#projects"
+                                href="#work"
                                 className="inline-flex items-center gap-2.5 bg-black px-6 py-3.5 text-[11px] font-black uppercase tracking-[0.2em] text-white transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
                                 aria-label="View my work"
                             >
@@ -129,7 +129,7 @@ export default function Hero() {
                             </a>
 
                             <a
-                                href="/Obayomi-Taofeek-Resume.pdf"
+                                href="/Obayomi%20Taofeek%20-%20Software%20Developer.pdf"
                                 download
                                 className="inline-flex items-center gap-2.5 border border-black/20 px-6 py-3.5 text-[11px] font-black uppercase tracking-[0.2em] transition-all hover:-translate-y-0.5 hover:bg-black hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
                                 aria-label="Download my resume"
